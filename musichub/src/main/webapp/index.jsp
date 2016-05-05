@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUSICHUB</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-   <script src="js/jquery-2.2.3.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <script src="resources/bootstrap/js/jquery-2.2.3.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
  
     <style type="text/css">
 
@@ -63,12 +63,12 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="images/music1.jpg" alt="Image1">
+        <img src="resources/images/music1.jpg" alt="Image1">
                 
       </div>
 
       <div class="item">
-        <img src="images/music2.jpg" alt="Image2">
+        <img src="resources/images/music2.jpg" alt="Image2">
         
       </div>
     </div>
@@ -82,15 +82,15 @@
   <h3>OUR SPECIALITIES</h3><br>
   <div class="row">
     <div class="col-sm-4">
-      <img src="images/music1.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="resources/images/music1.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>mh</p>
     </div>
     <div class="col-sm-4"> 
-      <img src="images/music2.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="resources/images/music2.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>mh</p>    
     </div>
     <div class="col-sm-4">
-      <img src="images/music3.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="resources/images/music3.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>mh</p>
       </div>
    
