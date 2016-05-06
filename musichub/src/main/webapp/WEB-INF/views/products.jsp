@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@page isELIgnored="false" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:url var="css" value="/resources/bootstrap/css"/>
+<c:url var="js" value="/resources/bootstrap/js"/>
+<c:url var="fonts" value="/resources/bootstrap/fonts"/>
+<c:url var="img" value="/resources/images/"/>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
@@ -7,17 +14,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Products Listing</title>
-
+	
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="${css}/bootstrap.min.css">
+    <link rel="stylesheet" href="${css}/product.css">
     <style type="text/css">
         body { padding-top:50px; }
     </style>
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="js/product.js"></script>
+    <script type="text/javascript">
+    
+    angular.module('sortApp', [])
+
+    .controller('mainController', function($scope) {
+      // create the list  
+      $scope.music =<%=request.getAttribute("listofprod")%>
+      
+    });
+    
+    </script>
+    <!-- <script src="${js}/product.js"></script> -->
 
 </head>
 <body>
@@ -40,9 +58,9 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="product">Guitar</a></li>
-          <li><a href="product">Piano</a></li>
-          <li><a href="product">Flute</a></li> 
+          <li><a href="products/getAllProducts">Guitar</a></li>
+          <li><a href="products/getAllProducts">Piano</a></li>
+          <li><a href="products/getAllProducts">Flute</a></li> 
         </ul>
       </li>
         <li><a href="register">Register Here</a></li>
@@ -108,11 +126,11 @@
     
     <tbody>
       <tr ng-repeat="roll in music | orderBy:sortType:sortReverse | filter:searchMusic">
-        <td>{{ roll.id }}</td>
-        <td>{{ roll.name }}</td>
-        <td>{{ roll.brand }}</td>
-        <td>{{ roll.price }}</td>
-        <td>{{ roll.category }}</td>
+        <td>{{ roll.product_id}}</td>
+        <td>{{ roll.product_name}}</td>
+        <td>{{ roll.product_price}}</td>
+        <td>{{ roll.product_brand}}</td>
+        <td>{{ roll.product_category}}</td>
       </tr>
     </tbody>
     

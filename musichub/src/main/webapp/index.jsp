@@ -1,3 +1,11 @@
+<%@page isELIgnored="false" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<c:set var="css" value="resources/bootstrap/css"/>
+<c:set var="js" value="resources/bootstrap/js"/>
+<c:set var="fonts" value="resources/bootstrap/fonts"/>
+<c:set var="img" value="resources/images/"/>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,9 +48,9 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Products
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="products">Guitar</a></li>
-          <li><a href="products">Piano</a></li>
-          <li><a href="products">Flute</a></li> 
+          <li><a href="products/getAllProducts">Guitar</a></li>
+          <li><a href="products/getAllProducts">Piano</a></li>
+          <li><a href="products/getAllProducts">Flute</a></li> 
         </ul>
       </li>
         <li><a href="register">Register Here</a></li>
@@ -63,12 +71,13 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="resources/images/music1.jpg" alt="Image1">
+        <img src="${img}/music1.jpg" alt="Image1">
                 
       </div>
 
       <div class="item">
-        <img src="resources/images/music2.jpg" alt="Image2">
+      
+        <img src="${img}/music2.jpg" alt="Image2">
         
       </div>
     </div>
@@ -82,15 +91,15 @@
   <h3>OUR SPECIALITIES</h3><br>
   <div class="row">
     <div class="col-sm-4">
-      <img src="resources/images/music1.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="${img}/music1.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>mh</p>
     </div>
     <div class="col-sm-4"> 
-      <img src="resources/images/music2.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="${img}/music2.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>mh</p>    
     </div>
     <div class="col-sm-4">
-      <img src="resources/images/music3.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <img src="${img}/music3.jpg" class="img-responsive" style="width:100%" alt="Image">
       <p>mh</p>
       </div>
    
