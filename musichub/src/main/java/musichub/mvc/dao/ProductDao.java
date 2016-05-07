@@ -3,36 +3,60 @@ package musichub.mvc.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import musichub.mvc.model.Product;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 @Repository("dao")
 public class ProductDao implements ProductDaoImpl{
 
-private List<Product> products = new ArrayList<Product>();
+	@Autowired
+	SessionFactory factory;
 
-//method to add the product in the list
-public void addProductDetail(Product prod){
+	public Session getSession(){
 		
-	products.add(prod);
-}
+		return factory.openSession();
+				
+	}
 
-//method to remove the product from the list
-public void deleteProduct(Product prod){
-
-	products.remove(prod);
-	
-}
-
-//method to return all the products as list
+	public void saveProduct(Product prod) {
+		
+		Session sess = getSession();
+		
+		if(sess!=null){
+		Transaction tx = sess.beginTransaction();
+		System.out.println("Session Object is : "+sess);
+		sess.save(prod);
+	    System.out.println("Product Object Saved Successfully");
+		tx.commit();
+		sess.close();
+		
+		}
+	}
+    	
 public List<Product> getProductsList(){
 	
-	products.add(new Product(1001, "guitar", 3000, "guitar", "A"));
-	products.add(new Product(1002, "piano", 4500, "piano", "B"));
-	products.add(new Product(1003, "flute", 9000, "flute", "C"));
-	products.add(new Product(1004, "tabla", 2500, "tabla", "D"));
+	Session sess = getSession();
+	List<Product> products = null;
+	
+	if(sess!=null){
+		
+	Transaction tx = sess.beginTransaction();
+	System.out.println("Session Object is : "+sess);
+	Query query = sess.createQuery("from Product");
+	products = (List<Product>)query.list();	
+    tx.commit();
+	sess.close();
+	
+	}
+	
 	return products;
+	
 	
   }	
 }

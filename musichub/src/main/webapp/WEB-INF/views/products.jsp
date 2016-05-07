@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page isELIgnored="false" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:url var="css" value="/resources/bootstrap/css"/>
 <c:url var="js" value="/resources/bootstrap/js"/>
-<c:url var="fonts" value="/resources/bootstrap/fonts"/>
 <c:url var="img" value="/resources/images/"/>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,7 +29,7 @@
 
     .controller('mainController', function($scope) {
       // create the list  
-      $scope.music =<%=request.getAttribute("listofprod")%>
+      $scope.music = ${listofprod}
       
     });
     
@@ -121,16 +120,33 @@
             <span ng-show="sortType == 'brand' && sortReverse" class="fa fa-caret-up"></span>
           </a>
         </td>
+        <td>
+          <a href="#" ng-click="sortType = 'brand'; sortReverse = !sortReverse">
+         More Info
+            <span ng-show="sortType == 'brand' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'brand' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
       </tr>
     </thead>
     
     <tbody>
       <tr ng-repeat="roll in music | orderBy:sortType:sortReverse | filter:searchMusic">
-        <td>{{ roll.product_id}}</td>
-        <td>{{ roll.product_name}}</td>
-        <td>{{ roll.product_price}}</td>
-        <td>{{ roll.product_brand}}</td>
-        <td>{{ roll.product_category}}</td>
+        <td>{{roll.product_id}}</td>
+        <td>{{roll.product_name}}</td>
+        <td>{{roll.product_price}}</td>
+        <td>{{roll.product_brand}}</td>
+        <td>{{roll.product_category}}</td>
+        <td>
+        <form action="productinfo">
+        <input type="hidden" name="product_id" value="{{roll.product_id}}"/>
+        <input type="hidden" name="product_name" value="{{roll.product_name}}"/>
+        <input type="hidden" name="product_price" value="{{roll.product_price}}"/>
+        <input type="hidden" name="product_brand" value="{{roll.product_brand}}"/>
+        <input type="hidden" name="product_category" value="{{roll.product_category}}"/>
+        <button type="submit" class="btn btn-link "><span class="glyphicon glyphicon-music" aria-hidden="true"></span></button>
+        </form>
+        </td>
       </tr>
     </tbody>
     

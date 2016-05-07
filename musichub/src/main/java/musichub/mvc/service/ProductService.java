@@ -14,6 +14,11 @@ public class ProductService {
 	@Autowired
 	ProductDao dao;
 	
+	public ProductDao getProductDao() {
+		
+		return dao;
+	}
+	
 	public List<Product> getAllProducts() {
 		
 		return dao.getProductsList();

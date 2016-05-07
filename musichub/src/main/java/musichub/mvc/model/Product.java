@@ -1,13 +1,28 @@
 package musichub.mvc.model;
 
-public class Product {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="productdetails")
+public class Product implements Serializable{
 	
+	@Id
+	@GeneratedValue
 	private int product_id;
 	private String product_name;
 	private int product_price;
 	private String product_brand;
 	private String product_category;
 
+	public Product(){
+		
+	}
+	
 	public Product(int product_id,String product_name,int product_price,String product_brand,String product_category) {
 		
 		this.product_id = product_id;

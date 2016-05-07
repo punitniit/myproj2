@@ -14,7 +14,7 @@
     <title>MUSICHUB</title>
 
     <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <script src="resources/bootstrap/js/jquery-2.2.3.js"></script>
+    <script src="resources/bootstrap/js/jquery-2.2.3.js"></script>
     <script src="resources/bootstrap/js/bootstrap.min.js"></script>
  
     <style type="text/css">
